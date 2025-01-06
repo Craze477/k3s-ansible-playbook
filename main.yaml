@@ -22,6 +22,8 @@
 
 - name: k3s(worker)
   hosts: worker
+  vars_files:
+    - vars.yaml
   tasks:
     - name: joining and installing
       shell: |
