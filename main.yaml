@@ -5,3 +5,4 @@
   tasks:
     - name: main
       import_tasks: tasks/update.yaml
+      import_tasks: tasks/docker.yaml
