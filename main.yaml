@@ -18,17 +18,20 @@
       shell: cat /var/lib/rancher/k3s/server/node-token
       register: k3s_token
       become: true
+    
+    - name: output
+      debug:
+        msg: {{ k3s_token }}
 
-
-- name: k3s(worker)
-  hosts: worker
-  vars_files:
-    - vars.yaml
-  tasks:
-    - name: joining and installing
-      shell: |
-          curl -sfL https://get.k3s.io | K3S_URL=https://{{ host_ip }}:6443 K3S_TOKEN={{ k3s_token.stdout }} sh - 
-      become: true
+# - name: k3s(worker)
+#   hosts: worker
+#   vars_files:
+#     - vars.yaml
+#   tasks:
+#     - name: joining and installing
+#       shell: |
+#           curl -sfL https://get.k3s.io | K3S_URL=https://{{ host_ip }}:6443 K3S_TOKEN={{ k3s_token.stdout }} sh - 
+#       become: true
     
 
 
