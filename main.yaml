@@ -14,4 +14,4 @@
          curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s
       become: true
 
-    - name: copying k3s token to the 
+    
