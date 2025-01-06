@@ -1,0 +1,7 @@
+---
+- name: tasks
+  hosts: all
+  become: true
+  tasks:
+    - name: main
+      import_tasks: tasks/update.yaml
