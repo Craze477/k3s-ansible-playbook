@@ -21,7 +21,7 @@
     
     - name: output
       debug:
-        msg: {{ k3s_token }}
+        msg: {{ k3s_token.stdout }}
 
 # - name: k3s(worker)
 #   hosts: worker
