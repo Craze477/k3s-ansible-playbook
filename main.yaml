@@ -30,7 +30,7 @@
   tasks:
     - name: joining and installing
       shell: |
-          curl -sfL https://get.k3s.io | K3S_URL=https://51.120.118.95:6443 K3S_TOKEN={{ hostvars['51.120.118.95'].k3s_token.stdout }} sh - 
+          curl -sfL https://get.k3s.io | K3S_URL=https://51.120.118.95:6443 K3S_TOKEN={{ k3s_token.stdout }} sh - 
       become: true
     
 
