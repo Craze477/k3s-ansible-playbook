@@ -1,7 +1,17 @@
 ---
-- name: tasks
+- name: essential
   hosts: all
   become: true
   tasks:
     - import_tasks: tasks/update.yaml
     - import_tasks: tasks/docker.yaml
+
+- name: k3s
+  hosts: master
+  tasks:
+    - name: install k3s on master node
+      shell: |
+         curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s
+      become: true
+
+    - name: copying k3s token to the 
